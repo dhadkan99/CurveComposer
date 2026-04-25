@@ -9,14 +9,16 @@ import { songGraphs } from '../data/songGraphs'
 import { findTopSongMatches } from '../utils/similarityEngine'
 import { generateCurveFromExpression } from '../utils/mathEngine'
 
+import DecryptedText from './DecryptedText'
+
 const PRESETS = [
-  { id: 'sin', label: 'Sine', expr: 'sin(x)' },
+  { id: 'sin', label: 'Sine', expr: 'sin(x^2)' },
   { id: 'cos', label: 'Cosine', expr: 'cos(x)' },
   { id: 'x2', label: 'Wave x2', expr: 'sin(2*x)' },
   { id: 'x5', label: 'Wave x5', expr: 'sin(5*x)' },
   { id: 'par', label: 'Parabola', expr: 'x^2' },
   { id: 'line', label: 'Line', expr: 'x' },
-  { id: 'tan', label: 'Tan', expr: 'tan(x)' },
+  { id: 'tan', label: 'Tan', expr: 'tan(6x)' },
   { id: 'mix', label: 'Mix', expr: 'sin(x)+cos(8*x)' },
 ] as const
 
@@ -87,9 +89,13 @@ export function CurveComposerPage({ onBackToLanding }: Props) {
           <div className="grid grid-cols-1 gap-3 lg:col-span-9 lg:grid-cols-9">
             <aside className="cc-fade-up space-y-4 lg:col-span-3">
               <div className="px-1 pt-1">
-                <div className="text-2xl font-bold tracking-tight text-slate-100">
-                  CurveComposer
-                </div>
+            <DecryptedText
+  text="CurveComposer"
+  revealDirection="start"
+  sequential
+  useOriginalCharsOnly={false}
+  animateOn="view"
+/>
                 <div className="mt-1 text-xs text-slate-300">
                   Find Music using Math
                 </div>
