@@ -15,8 +15,8 @@ export function SimilarSongsPanel({ matches, thresholdPct = 70 }: Props) {
   const hasStrong = matches.some((m) => m.similarityPct >= thresholdPct)
 
   return (
-    <section className="flex h-full min-h-0 flex-col rounded-2xl border border-slate-700/60 bg-slate-950/16 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-md">
-      <div className="border-b border-slate-700/60 p-4">
+    <section className="flex h-full min-h-[520px] flex-col rounded-2xl border border-slate-700/60 bg-slate-950/16 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-md">
+      <div className="shrink-0 border-b border-slate-700/60 p-4">
         <div className="flex items-start justify-between gap-3">
           <div>
             <div className="text-sm font-semibold text-slate-200">Similar Songs</div>
@@ -36,13 +36,14 @@ export function SimilarSongsPanel({ matches, thresholdPct = 70 }: Props) {
         ) : null}
       </div>
 
-      <div className="min-h-0 flex-1 overflow-auto p-4">
+      <div className="min-h-0 flex-1 overflow-y-auto p-4 pr-3">
         {matches.length === 0 ? (
           <div className="text-sm text-slate-400">No songs loaded.</div>
         ) : (
           <div className="space-y-4">
             {matches.map((m) => {
               const strong = m.similarityPct >= thresholdPct
+
               return (
                 <div
                   key={m.song.id}
@@ -91,4 +92,3 @@ export function SimilarSongsPanel({ matches, thresholdPct = 70 }: Props) {
     </section>
   )
 }
-
