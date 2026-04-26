@@ -19,6 +19,8 @@ sin(x) + cos(2*x)
 The app converts the equation into a curve, analyzes its shape, and compares it with preprocessed song energy graphs. The most similar songs are then ranked and displayed with similarity percentages.
 
 ---
+##DataSet used 
+https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification
 
 ## Main Features
 
